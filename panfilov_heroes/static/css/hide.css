@@ -1,0 +1,43 @@
+.collapsible {
+    margin: 20px 0;
+}
+
+.toggle-button {
+    width: 100%;
+    text-align: left;
+    background-color: #909090;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 1.1em;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle-button:hover {
+    background-color: #c3c3c3;
+}
+
+.arrow {
+    transition: transform 0.3s;
+}
+
+.content {
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    font-size: 1em;
+    line-height: 1.6;
+    display: none;
+}
+
+.important {
+    color: rgb(203, 3, 3)  ;
+}
+p {
+    text-align: left;
+}

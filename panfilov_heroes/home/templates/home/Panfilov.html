@@ -1,0 +1,295 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Иван Васильевич Панфилов</title>
+    <link rel="stylesheet" href="{% static 'css/keyboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hide.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap; 
+            max-width: 100%; 
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            justify-content: space-between; 
+        }
+
+        .hero-photo {
+            flex: 1 1 45%; 
+            max-width: 50%;
+            margin-right: 20px;
+            text-align: center;
+        }
+
+        .hero-photo img {
+            width: 80%; 
+            height: auto; 
+            object-fit: cover; 
+            border-radius: 8px;
+        }
+
+        .hero-details {
+            flex: 1 1 45%; 
+            padding: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-details h1 {
+            margin-top: 0;
+        }
+
+        .hero-details p {
+            margin: 10px 0;
+        }
+
+        .hero-details strong {
+            color: #333;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2em;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 60px;
+            height: 60px;
+            background-color: #b1b1b1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            border-radius: 10%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-link::before {
+            content: '\2190'; 
+            font-size: 1.5em;
+            color: white;
+        }
+
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .hero-photo,
+            .hero-details {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            .hero-photo img {
+                height: auto;
+            }
+
+            .hero-details {
+                font-size: 0.8em;
+            }
+
+            .back-link {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .back-link {
+                width: 50px;
+                height: 50px;
+            }
+
+            .back-link::before {
+                font-size: 1.2em;
+            }
+
+            .hero-details {
+                font-size: 0.9em;
+            }
+
+            .back-link {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (min-width: 1920px) and (max-width: 3000px) {
+            .back-link {
+                width: 20px; 
+                height: 20px;
+                font-size: 4.8em; 
+                background-color: #333;
+            }
+
+            .back-link::before {
+                font-size: 1em; 
+                background-color: #333;
+                margin-top: 300px;
+                margin-left: 110px;
+            }
+
+            .container {
+                max-width: 95%; 
+                padding: 40px; 
+            }
+
+            .hero-photo img {
+                max-width: 75%; 
+            }
+        }
+
+        @media (min-width: 3001px) and (max-width: 6000px) {
+            .back-link {
+                width: 20px;
+                height: 20px;
+                font-size: 4.8em; 
+                background-color: #333;
+            }
+
+            .back-link::before {
+                font-size: 1em; 
+                background-color: #333;
+                margin-top: 700px;
+                margin-left: 340px;
+            }
+
+            .container {
+                max-width: 95%;
+                padding: 40px;
+            }
+
+            .hero-photo img {
+                max-width: 75%; 
+            }
+        }
+
+        @media (min-width: 6001px) and (max-width: 9000px) {
+            .back-link {
+                width: 20px; 
+                height: 20px;
+                font-size: 4.8em; 
+                background-color: #333;
+            }
+
+            .back-link::before {
+                font-size: 1em; 
+                background-color: #333;
+                margin-top: 700px;
+                margin-left: 500px;
+            }
+
+            .container {
+                max-width: 95%; 
+                padding: 40px; 
+            }
+
+            .hero-photo img {
+                max-width: 75%; 
+            }
+        }  
+        .important {
+            color: rgb(203, 3, 3)  ;
+        }
+        p {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<a href="{% url 'home' %}" class="back-link"></a>
+    
+<h1 style="text-align: center;">Иван Васильевич Панфилов</h1>
+
+<div class="container">
+    <div class="hero-photo">
+        <img src="{% static 'images/Panfilov.jpg' %}" alt="Иван Васильевич Панфилов">
+    </div>
+
+    <div class="hero-details">
+        <h1>Иван Васильевич Панфилов</h1>
+        <h3 class="important">Советский военачальник, генерал-майор, Герой Советского Союза (посмертно).</h3>
+        <p><span class="highlight">Родился (20 декабря 1892 года (1 января 1893 года) или 1 (13) января 1893 года в Петровске Саратовской губернии в семье мелкого конторского служащего. Русский по национальности.</span></p>
+
+        <div class="collapsible">
+            <button class="toggle-button">
+                Первая мировая война <span class="arrow">&#9660;</span>
+            </button>
+            <div class="content">
+                <p>
+                    В октябре 1915 года был призван в Русскую императорскую армию. Военная служба началась в учебной команде 168-го запасного батальона. С марта 1917 года в составе 638-го пехотного Ольтинского полка 160-й пехотной дивизии 16-го армейского корпуса 9-й армии воевал на Юго-Западном фронте Первой мировой войны в звании фельдфебеля. В 1917 году был избран членом полкового комитета. Демобилизовался в 1918 году.
+                </p>
+            </div>
+        </div>
+
+        <div class="collapsible">
+            <button class="toggle-button">
+                Гражданская война <span class="arrow">&#9660;</span>
+            </button>
+            <div class="content">
+                <p>
+                    С 14 июля 1941 года Иван Васильевич приступил к формированию 316-й стрелковой дивизии. В эту дивизию набирались жители Алматы, Алматинской области и Фрунзе.
+                    <br><br>
+                    10 октября 316-я дивизия вступила в бой с противником и смогла нанести ему значительный урон. За бои в период с 10 октября по 5 ноября генерал-майор Панфилов был награждён орденом Красного Знамени.
+                    <br><br>
+                    16 ноября 2-й танковая дивизия вермахта атаковала позиции 316-й сд, в том числе в районе Дубосеково. Части дивизии во главе с Панфиловым вели тяжёлые оборонительные бои с превосходящими силами противника. В этих боях личный состав дивизии проявил массовый героизм. В ходе боев 16-20 ноября на Волоколамском направлении оборона 316-й стрелковой дивизии (с 17 ноября Краснознамённая, с 18 ноября — 8-я Гвардейская) была прорвана, дивизия вынуждена была отступать, остановившись лишь в районе Крюково.
+                    
+                </p>
+            </div>
+        </div>
+
+        <div class="collapsible">
+            <button class="toggle-button">
+                Участие в Великой Отечественной войне:<span class="arrow">&#9660;</span>
+            </button>
+            <div class="content">
+                <p>
+                    С 14 июля 1941 года Иван Васильевич приступил к формированию 316-й стрелковой дивизии. В эту дивизию набирались жители Алматы, Алматинской области и Фрунзе.
+                    <br><br>
+                    10 октября 316-я дивизия вступила в бой с противником и смогла нанести ему значительный урон. За бои в период с 10 октября по 5 ноября генерал-майор Панфилов был награждён орденом Красного Знамени.
+                    <br><br>
+                    16 ноября 2-й танковая дивизия вермахта атаковала позиции 316-й сд, в том числе в районе Дубосеково. Части дивизии во главе с Панфиловым вели тяжёлые оборонительные бои с превосходящими силами противника. В этих боях личный состав дивизии проявил массовый героизм. В ходе боев 16-20 ноября на Волоколамском направлении оборона 316-й стрелковой дивизии (с 17 ноября Краснознамённая, с 18 ноября — 8-я Гвардейская) была прорвана, дивизия вынуждена была отступать, остановившись лишь в районе Крюково.
+                    
+                    </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/hide.js' %}"></script>
+</body>
+</html>

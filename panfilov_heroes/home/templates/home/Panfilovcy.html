@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панфиловцы</title>
+    <link rel="stylesheet" href="{% static 'css/keyboard.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap; 
+            max-width: 100%; 
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            justify-content: space-between; 
+        }
+
+        .hero-photo {
+            flex: 1 1 45%; 
+            max-width: 50%;
+            margin-right: 20px;
+            text-align: center;
+        }
+
+        .hero-photo img {
+            width: 80%; 
+            height: auto; 
+            object-fit: cover; 
+            border-radius: 8px;
+        }
+
+        .hero-details {
+            flex: 1 1 45%; 
+            padding: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-details h1 {
+            margin-top: 0;
+        }
+
+        .hero-details p {
+            margin: 10px 0;
+        }
+
+        .hero-details strong {
+            color: #333;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2em;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 60px;
+            height: 60px;
+            background-color: #b1b1b1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            border-radius: 10%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-link::before {
+            content: '\2190'; 
+            font-size: 1.5em;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .hero-photo,
+            .hero-details {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            .hero-photo img {
+                height: auto;
+            }
+
+            .hero-details {
+                font-size: 0.8em;
+            }
+
+            .back-link {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .back-link {
+                width: 50px;
+                height: 50px;
+            }
+
+            .back-link::before {
+                font-size: 1.2em;
+            }
+
+            .hero-details {
+                font-size: 0.9em;
+            }
+
+            .back-link {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (min-width: 1920px) and (max-width: 3000px) {
+            .back-link {
+                width: 20px; 
+                height: 20px;
+                font-size: 4.8em; 
+                background-color: #333;
+            }
+
+            .back-link::before {
+                font-size: 1em; 
+                background-color: #333;
+                margin-top: 300px;
+                margin-left: 110px;
+            }
+
+            .container {
+                max-width: 95%; 
+                padding: 40px; 
+            }
+
+            .hero-photo img {
+                max-width: 75%; 
+            }
+        }
+
+        @media (min-width: 3001px) and (max-width: 6000px) {
+            .back-link {
+                width: 20px; 
+                height: 20px;
+                font-size: 4.8em; 
+                background-color: #333;
+            }
+
+            .back-link::before {
+                font-size: 1em; 
+                background-color: #333;
+                margin-top: 700px;
+                margin-left: 340px;
+            }
+
+            .container {
+                max-width: 95%; 
+                padding: 40px; 
+            }
+
+            .hero-photo img {
+                max-width: 75%; 
+            }
+        }
+
+        @media (min-width: 6001px) and (max-width: 9000px) {
+            .back-link {
+                width: 20px; 
+                height: 20px;
+                font-size: 4.8em; 
+                background-color: #333;
+            }
+
+            .back-link::before {
+                font-size: 1em; 
+                background-color: #333;
+                margin-top: 700px;
+                margin-left: 500px;
+            }
+
+            .container {
+                max-width: 95%; 
+                padding: 40px; 
+            }
+
+            .hero-photo img {
+                max-width: 75%; 
+            }
+        }  
+
+        .important {
+            color: rgb(203, 3, 3)  ;
+        }
+
+    </style>
+</head>
+<body>
+    <audio autoplay loop preload="auto">
+    <source src="{% static 'audio/zhuravli.mp3' %}" type="audio/mpeg">
+        Ваш браузер не поддерживает воспроизведение аудио.
+    </audio>
+
+
+<a href="{% url 'home' %}" class="back-link"></a>
+
+<h1 style="text-align: center;">Панфиловцы</h1>
+
+<div class="container">
+    <div class="hero-photo">
+        <img src="{% static 'images/panfilovcy.jpg' %}" alt="Бауыржан Момышулы">
+    </div>
+
+    <div class="hero-details">
+        <h1>Панфиловцы</h1>  
+            <h4 class="important">Панфи́ловцы - военнослужащие сформированной в городах Алма-Ате Казахской ССР и Фрунзе Киргизской ССР 316-йстрелковой дивизии (впоследствии 8-я гвардейская) под командованием генерал-майора И. В. Панфилова (до этого военный комиссар Киргизской ССР), участвовавшие в 1941 году в обороне Москвы.</h4>
+        <p>Наибольшую известность из воинов дивизии получили 28 человек из взвода истребителей танков 4-й роты 2-го батальона 1075-го стрелкового полка во главе с политруком В. Г. Клочковым. Обстоятельства их подвига, включая легендарную фразу Клочкова «Велика Россия, а отступать некуда — позади Москва!», известны со слов журналиста А. Ю. Кривицкого; также с его слов стало известно, что 16 ноября, в начале нового наступления немцев на Москву, бойцы 4-й роты, обороняя опорный пункт в районе разъезда Дубосеково (в 7 км к юго-востоку от Волоколамска), в ходе 4-часового боя уничтожили 18 вражеских танков. 
+            <br><br>
+            С тех пор бой 28 бойцов-противотанкистов у разъезда Дубосеково стал известен как «подвиг героев-панфиловцев», «подвиг 28 героев-панфиловцев», «подвиг 28 панфиловцев».
+
+        </p>
+    </div>
+</div>
+</body>
+</html>
